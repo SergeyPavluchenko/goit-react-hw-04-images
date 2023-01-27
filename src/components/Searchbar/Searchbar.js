@@ -13,10 +13,6 @@ import {
 export const SearchBar = ({ onSubmit }) => {
   const [imageName, setImageName] = useState('');
 
-  // state = {
-  //   imageName: '',
-  // };
-
   const handleImageNameChange = event => {
     setImageName(event.currentTarget.value.toLowerCase());
   };

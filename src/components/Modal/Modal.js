@@ -3,7 +3,7 @@ import { WindowModal, Overlay } from 'components/Modal/Modal.styled';
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-export const Modal = ({ largeImageURL, tags }) => {
+export const Modal = ({ largeImageURL, tags, onClose }) => {
   useEffect(() => {
     window.addEventListener('keydown', closeModalByEsc);
     return () => {
@@ -13,16 +13,15 @@ export const Modal = ({ largeImageURL, tags }) => {
 
   const closeModalByEsc = event => {
     if (event.code === 'Escape') {
-      this.props.onClose();
+      onClose();
     }
   };
   const closeModalOverlay = event => {
     if (event.currentTarget === event.target) {
-      this.props.onClose();
+      onClose();
     }
   };
 
-  // const { largeImageURL, tags } = this.props;
   return (
     <Overlay onClick={closeModalOverlay}>
       <WindowModal>
